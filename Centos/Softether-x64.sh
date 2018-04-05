@@ -8,9 +8,13 @@
 #-------------------------------------------------------
 
 #Install Development packages:
+yum -y update
+yum -y upgrade
 yum -y groupinstall "Development Tools"
 yum -y install gcc*
 yum -y install libpcap*
+yum -y install wget
+yum -y install nano
 
 #Get the Softether Packages via wget and Save it into /root
 wget http://www.softether-download.com/files/softether/v4.25-9656-rtm-2018.01.15-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.25-9656-rtm-2018.01.15-linux-x64-64bit.tar.gz
