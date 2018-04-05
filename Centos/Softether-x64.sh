@@ -13,7 +13,6 @@ yum -y upgrade
 yum -y groupinstall "Development Tools"
 yum -y install gcc*
 yum -y install libpcap*
-yum -y install wget
 yum -y install nano
 
 #Get the Softether Packages via wget and Save it into /root
