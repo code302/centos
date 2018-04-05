@@ -9,12 +9,14 @@
 
 #Install Development packages:
 yum -y groupinstall "Development Tools"
+yum -y install gcc*
+yum -y install libpcap*
 
 #Get the Softether Packages via wget and Save it into /root
-wget http://www.softether-download.com/files/softether/v4.10-9473-beta-2014.07.12-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.10-9473-beta-2014.07.12-linux-x64-64bit.tar.gz
+wget http://www.softether-download.com/files/softether/v4.25-9656-rtm-2018.01.15-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.25-9656-rtm-2018.01.15-linux-x64-64bit.tar.gz
 
 #Unpack into /usr/local/
-tar -xvzf softether-vpnserver-v4.10-9473-beta-2014.07.12-linux-x64-64bit.tar.gz -C /usr/local/
+tar xzvf softether-vpnserver-v4.25-9656-rtm-2018.01.15-linux-x64-64bit.tar.gz -C /usr/local/
 
 #Change permissions and install
 chmod -R 744 /usr/local/vpnserver
