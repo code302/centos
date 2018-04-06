@@ -21,10 +21,18 @@ wget http://www.softether-download.com/files/softether/v4.25-9656-rtm-2018.01.15
 #Unpack into /usr/local/
 tar xzvf softether-vpnserver-v4.25-9656-rtm-2018.01.15-linux-x64-64bit.tar.gz -C /usr/local/
 
-#Change permissions and install
-chmod -R 744 /usr/local/vpnserver
-cd /usr/local/vpnserver
+#Making files, manual input needed
+cd vpnserver
+clear
 make
+cd ..
+#Moving files to /usr/local
+mv vpnserver /usr/local
+#Set the permissions
+cd /usr/local/vpnserver
+chmod 600 *
+chmod 700 vpncmd
+chmod 700 vpnserver
 
 #Create init start/stop script
 wget https://raw.githubusercontent.com/syahz86/SoftetherAutoInstall/master/misc/vpnserver-centos.sh --no-check-certificate
