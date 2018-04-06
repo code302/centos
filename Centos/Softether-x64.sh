@@ -1,26 +1,25 @@
 #-------------------------------------------------------
 #Softether Auto Install Script
-#For OS Centos
-#Script Coded by Syahz86
-#https://github.com/syahz86/SoftetherAutoInstall
+#For Debian 8 x64
+#
+#Script Coded by code302
+#https://raw.githubusercontent.com/code302/Debian-with-LBC
+#
 #Script Based from tutorial by lincolin.hk
+#
 #Good Luck!
 #-------------------------------------------------------
-
-#Install Development packages:
+#Updating Repositories and Installing Development Packages
 yum -y update
 yum -y upgrade
 yum -y groupinstall "Development Tools"
 yum -y install gcc*
 yum -y install libpcap*
 yum -y install nano
-
 #Get the Softether Packages via wget and Save it into /root
+cd /root
 wget http://www.softether-download.com/files/softether/v4.25-9656-rtm-2018.01.15-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.25-9656-rtm-2018.01.15-linux-x64-64bit.tar.gz
-
-#Unpack into /usr/local/
-tar xzvf softether-vpnserver-v4.25-9656-rtm-2018.01.15-linux-x64-64bit.tar.gz -C /usr/local/
-
+tar xzvf softether-vpnserver-v4.25-9656-rtm-2018.01.15-linux-x64-64bit.tar.gz
 #Making files, manual input needed
 cd vpnserver
 clear
@@ -33,22 +32,21 @@ cd /usr/local/vpnserver
 chmod 600 *
 chmod 700 vpncmd
 chmod 700 vpnserver
-
-#Create init start/stop script
-wget https://raw.githubusercontent.com/syahz86/SoftetherAutoInstall/master/misc/vpnserver-centos.sh --no-check-certificate
-mv vpnserver-centos.sh /etc/init.d/vpnserver
+#Downloading the Scripts for init.d and set Permission
+cd /root
+wget https://raw.githubusercontent.com/code302/Debian-with-LBC/master/misc/vpnserver-debian.sh --no-check-certificate
+mv vpnserver-debian.sh /etc/init.d/vpnserver
 cd /etc/init.d
-
-#Now server can be started and added to autostart
+#Creating lock and last touching...
 chmod 755 /etc/init.d/vpnserver
+/sbin/chkconfig --add vpnserver
 /etc/init.d/vpnserver start
-chkconfig vpnserver on
-
-echo "-----------------------------------------------------"
-echo "Install finish!"
-echo "check this step to check are installer is working properly"
-echo "1. vpnserver and vpncmd is on /usr/local/vpnserver"
-echo -e "2. \e[1;33;44m/etc/init.d/vpnserver start\e[0m to check softether status"
-echo -e "if vpnserver started, paste \e[1;33;44mcd /usr/local/vpnserver\e[0m then \e[1;33;44m./vpncmd\e[0m for VPN configuration"
-echo "------------------------------------------------------"
+cd /usr/local/vpnserver
+echo -----------------------------------------------------
+echo Install finish!
+echo check this step to check are installer is working properly
+echo 1. vpnserver and vpncmd is on /usr/local/vpnserver
+echo 2. /etc/init.d/vpnserver start can executed
+echo if vpnserver can start, congratulations!
+echo ------------------------------------------------------
 exit
