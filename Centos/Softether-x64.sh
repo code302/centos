@@ -18,8 +18,8 @@ yum -y install libpcap*
 yum -y install nano
 #Get the Softether Packages via wget and Save it into /root
 cd /root
-wget http://www.softether-download.com/files/softether/v4.25-9656-rtm-2018.01.15-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.25-9656-rtm-2018.01.15-linux-x64-64bit.tar.gz
-tar xzvf softether-vpnserver-v4.25-9656-rtm-2018.01.15-linux-x64-64bit.tar.gz
+wget http://www.softether-download.com/files/softether/v4.27-9666-beta-2018.04.21-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.27-9666-beta-2018.04.21-linux-x64-64bit.tar.gz
+tar xzvf softether-vpnserver-v4.27-9666-beta-2018.04.21-linux-x64-64bit.tar.gz
 #Making files, manual input needed
 cd vpnserver
 clear
